@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import EmailSignupModal from '@/components/EmailSignupModal';
+import EmailSignupModal from './EmailSignupModal';
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
