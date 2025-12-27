@@ -255,60 +255,128 @@ export default function FunnelsPage() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
-        <h2 className="text-3xl font-bold text-white mb-8 text-center">Simple Pricing</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-slate-900 rounded-xl p-8 border border-slate-800 shadow-xl">
-            <h3 className="text-2xl font-bold text-blue-300 mb-4">Starter</h3>
-            <p className="text-slate-400 mb-6">Perfect for single-service businesses just getting started.</p>
+      <section id="pricing" className="max-w-6xl mx-auto px-4 py-16 border-t border-slate-800">
+        <h2 className="text-3xl font-bold text-white mb-4 text-center">Simple, Transparent Pricing</h2>
+        <p className="text-slate-300 text-center mb-12 max-w-2xl mx-auto">
+          Choose the model that fits your business. No hidden fees. No long-term contracts. Cancel anytime.
+        </p>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
+          {/* DIY Package */}
+          <div className="bg-slate-900 rounded-xl p-8 border border-slate-800 shadow-xl flex flex-col">
+            <h3 className="text-2xl font-bold text-blue-300 mb-2">Build & Own</h3>
+            <p className="text-slate-400 mb-6 text-sm">For businesses that want to own their funnel outright and handle monthly costs themselves.</p>
             <div className="mb-6">
-              <p className="text-4xl font-bold text-white">$799</p>
-              <p className="text-slate-400 text-sm">One-time build fee</p>
+              <p className="text-5xl font-bold text-white">$1,000</p>
+              <p className="text-slate-400 text-sm">One-time payment</p>
             </div>
-            <p className="text-slate-300 font-semibold mb-4">Then $129/month for hosting, maintenance & support.</p>
-            <ul className="space-y-3 mb-8 text-slate-300 text-sm">
-              <li>✓ Single-page funnel</li>
-              <li>✓ Up to 5 services</li>
-              <li>✓ Mobile-optimized</li>
-              <li>✓ Call tracking (basic)</li>
-              <li>✓ GA4 setup</li>
-              <li>✓ Monthly reporting</li>
-              <li>✓ Email support</li>
+            <div className="mb-6 p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+              <p className="text-slate-300 text-sm mb-2 font-semibold">You'll handle monthly:</p>
+              <p className="text-slate-400 text-xs">• Hosting: ~$20/mo (Vercel)</p>
+              <p className="text-slate-400 text-xs">• Call tracking: ~$30/mo (your choice)</p>
+              <p className="text-slate-400 text-xs">• Updates: DIY or hire us as-needed</p>
+            </div>
+            <ul className="space-y-3 mb-8 text-slate-300 text-sm flex-grow">
+              <li>✓ Full funnel build (single-page)</li>
+              <li>✓ Mobile-first design</li>
+              <li>✓ GA4 setup & event tracking</li>
+              <li>✓ Call tracking integration</li>
+              <li>✓ 30-day launch optimization</li>
+              <li>✓ Full handoff with documentation</li>
+              <li>✓ Domain registered in your name</li>
+              <li>✓ You own 100% of everything</li>
             </ul>
-            <button className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all">
-              Get Started
-            </button>
+            <div className="mt-auto">
+              <p className="text-xs text-slate-500 mb-3 text-center">Best for: DIY-minded businesses who want full control</p>
+              <button className="w-full px-6 py-3 bg-slate-800 hover:bg-slate-700 border border-blue-600 text-white font-bold rounded-lg transition-all">
+                Get Started
+              </button>
+            </div>
           </div>
-          <div className="bg-slate-900 rounded-xl p-8 border-2 border-blue-600 shadow-xl relative">
-            <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+
+          {/* Managed Package - MOST POPULAR */}
+          <div className="bg-slate-900 rounded-xl p-8 border-2 border-blue-600 shadow-xl flex flex-col relative">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-bold">
               MOST POPULAR
             </div>
-            <h3 className="text-2xl font-bold text-blue-300 mb-4">Professional</h3>
-            <p className="text-slate-400 mb-6">For multi-service businesses or those serious about lead generation.</p>
+            <h3 className="text-2xl font-bold text-blue-300 mb-2">Managed Growth</h3>
+            <p className="text-slate-400 mb-6 text-sm">For businesses that want hands-off optimization and ongoing support.</p>
             <div className="mb-6">
-              <p className="text-4xl font-bold text-white">$1,499</p>
-              <p className="text-slate-400 text-sm">One-time build fee</p>
+              <p className="text-5xl font-bold text-white">$499</p>
+              <p className="text-slate-400 text-sm">Setup fee</p>
+              <p className="text-2xl font-bold text-blue-400 mt-2">+ $199/mo</p>
+              <p className="text-slate-400 text-xs">Includes hosting, tracking, & support</p>
             </div>
-            <p className="text-slate-300 font-semibold mb-4">Then $199/month for hosting, maintenance & support.</p>
-            <ul className="space-y-3 mb-8 text-slate-300 text-sm">
-              <li>✓ Everything in Starter, plus:</li>
-              <li>✓ Unlimited services</li>
-              <li>✓ Advanced photo gallery</li>
-              <li>✓ Video integration</li>
-              <li>✓ Call tracking (advanced)</li>
-              <li>✓ Form customization</li>
-              <li>✓ Bi-weekly optimization calls</li>
-              <li>✓ Call recording & transcripts</li>
-              <li>✓ Priority email/phone support</li>
+            <div className="mb-6 p-4 bg-blue-900/20 rounded-lg border border-blue-700/50">
+              <p className="text-blue-300 text-sm font-semibold mb-2">We handle everything:</p>
+              <p className="text-slate-300 text-xs">• Vercel hosting & SSL</p>
+              <p className="text-slate-300 text-xs">• Call tracking & GA4 monitoring</p>
+              <p className="text-slate-300 text-xs">• Monthly performance reports</p>
+              <p className="text-slate-300 text-xs">• Ongoing optimization & updates</p>
+            </div>
+            <ul className="space-y-3 mb-8 text-slate-300 text-sm flex-grow">
+              <li>✓ Everything in Build & Own, plus:</li>
+              <li>✓ Unlimited photo/content updates</li>
+              <li>✓ Monthly conversion optimization</li>
+              <li>✓ Real-time call/form alerts</li>
+              <li>✓ Priority email support (24hr response)</li>
+              <li>✓ A/B testing & form tweaks</li>
+              <li>✓ Annual domain renewal included</li>
+              <li>✓ Performance monitoring & fixes</li>
             </ul>
-            <button className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all">
-              Get Started
-            </button>
+            <div className="mt-auto">
+              <p className="text-xs text-slate-400 mb-3 text-center">Best for: Busy business owners who want results without the work</p>
+              <button className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all hover:scale-105">
+                Get Started
+              </button>
+            </div>
           </div>
+
+          {/* Growth Partner */}
+          <div className="bg-gradient-to-br from-purple-900/40 to-slate-900 rounded-xl p-8 border border-purple-700/50 shadow-xl flex flex-col">
+            <h3 className="text-2xl font-bold text-purple-300 mb-2">Growth Partner</h3>
+            <p className="text-slate-400 mb-6 text-sm">For established businesses ready to dominate their market with a full growth system.</p>
+            <div className="mb-6">
+              <p className="text-4xl font-bold text-white">Custom</p>
+              <p className="text-slate-400 text-sm">Starting at $2,500</p>
+              <p className="text-slate-400 text-xs mt-1">+ monthly retainer based on scope</p>
+            </div>
+            <div className="mb-6 p-4 bg-purple-900/20 rounded-lg border border-purple-700/50">
+              <p className="text-purple-300 text-sm font-semibold mb-2">Strategic partnership includes:</p>
+              <p className="text-slate-300 text-xs">• High-performance funnel + content strategy</p>
+              <p className="text-slate-300 text-xs">• Ongoing SEO, CRO, & conversion audits</p>
+              <p className="text-slate-300 text-xs">• Monthly content & optimization calls</p>
+              <p className="text-slate-300 text-xs">• Full-service growth consulting</p>
+            </div>
+            <ul className="space-y-3 mb-8 text-slate-300 text-sm flex-grow">
+              <li>✓ Everything in Managed Growth, plus:</li>
+              <li>✓ Content strategy & execution</li>
+              <li>✓ Advanced conversion rate optimization</li>
+              <li>✓ Bi-weekly strategy calls</li>
+              <li>✓ Custom integrations (CRM, automation)</li>
+              <li>✓ Dedicated account manager</li>
+              <li>✓ Multi-page expansion (if needed)</li>
+              <li>✓ Quarterly growth planning sessions</li>
+            </ul>
+            <div className="mt-auto">
+              <p className="text-xs text-slate-400 mb-3 text-center">Best for: $500k+ revenue businesses serious about market dominance</p>
+              <button className="w-full px-6 py-3 bg-purple-700 hover:bg-purple-800 text-white font-bold rounded-lg transition-all">
+                Schedule Consultation
+              </button>
+            </div>
+          </div>
+
         </div>
-        <p className="text-slate-400 text-center mt-8">
-          Both plans include 30 days of launch optimization and ongoing monthly support. No contracts. Cancel anytime.
-        </p>
+
+        <div className="mt-12 text-center">
+          <p className="text-slate-400 text-sm mb-4">
+            All plans include 30 days of launch optimization. No long-term contracts. Cancel anytime (managed plans only).
+          </p>
+          <p className="text-slate-500 text-xs">
+            Growth Partner pricing is custom based on revenue goals, market size, and scope of work. Book a consultation to discuss your needs.
+          </p>
+        </div>
       </section>
 
       {/* FAQ */}
