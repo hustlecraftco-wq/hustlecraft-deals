@@ -28,7 +28,7 @@ export default function Navigation() {
               onMouseEnter={() => setProductsOpen(true)}
               onMouseLeave={() => setProductsOpen(false)}
             >
-              <button className="text-slate-300 hover:text-white font-medium transition-colors flex items-center gap-1">
+              <button className="text-slate-300 hover:text-white font-medium transition-colors flex items-center gap-1 py-2">
                 Products
                 <svg
                   className="w-4 h-4"
@@ -45,34 +45,36 @@ export default function Navigation() {
                 </svg>
               </button>
               {productsOpen && (
-                <div className="absolute top-full left-0 mt-2 w-72 bg-slate-900 border border-slate-800 rounded-lg shadow-xl py-2">
-                  <Link
-                    href="/funnels"
-                    className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
-                  >
-                    <div className="font-semibold">Local Service Funnels</div>
-                    <div className="text-xs text-slate-400">
-                      Turn Google visitors into booked jobs
-                    </div>
-                  </Link>
-                  <Link
-                    href="/markets"
-                    className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
-                  >
-                    <div className="font-semibold">Trading Tools</div>
-                    <div className="text-xs text-slate-400">
-                      VIX tracking & market dashboards
-                    </div>
-                  </Link>
-                  <Link
-                    href="/deals"
-                    className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
-                  >
-                    <div className="font-semibold">Deals</div>
-                    <div className="text-xs text-slate-400">
-                      Curated savings for builders & traders
-                    </div>
-                  </Link>
+                <div className="absolute top-full left-0 pt-2 w-72">
+                  <div className="bg-slate-900 border border-slate-800 rounded-lg shadow-xl py-2">
+                    <Link
+                      href="/funnels"
+                      className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
+                    >
+                      <div className="font-semibold">Local Service Funnels</div>
+                      <div className="text-xs text-slate-400">
+                        Turn Google visitors into booked jobs
+                      </div>
+                    </Link>
+                    <Link
+                      href="/markets"
+                      className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
+                    >
+                      <div className="font-semibold">Trading Tools</div>
+                      <div className="text-xs text-slate-400">
+                        VIX tracking & market dashboards
+                      </div>
+                    </Link>
+                    <Link
+                      href="/deals"
+                      className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
+                    >
+                      <div className="font-semibold">Deals</div>
+                      <div className="text-xs text-slate-400">
+                        Curated savings for builders & traders
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -83,7 +85,7 @@ export default function Navigation() {
               onMouseEnter={() => setLearnOpen(true)}
               onMouseLeave={() => setLearnOpen(false)}
             >
-              <button className="text-slate-300 hover:text-white font-medium transition-colors flex items-center gap-1">
+              <button className="text-slate-300 hover:text-white font-medium transition-colors flex items-center gap-1 py-2">
                 Learn
                 <svg
                   className="w-4 h-4"
@@ -100,34 +102,36 @@ export default function Navigation() {
                 </svg>
               </button>
               {learnOpen && (
-                <div className="absolute top-full left-0 mt-2 w-72 bg-slate-900 border border-slate-800 rounded-lg shadow-xl py-2">
-                  <Link
-                    href="/learn/trading"
-                    className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
-                  >
-                    <div className="font-semibold">Trading Education</div>
-                    <div className="text-xs text-slate-400">
-                      Free guides, lessons, and playbooks
-                    </div>
-                  </Link>
-                  <Link
-                    href="/community"
-                    className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
-                  >
-                    <div className="font-semibold">Community</div>
-                    <div className="text-xs text-slate-400">
-                      Chat, strategy, and build-in-public
-                    </div>
-                  </Link>
-                  <Link
-                    href="/book"
-                    className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
-                  >
-                    <div className="font-semibold">The Book</div>
-                    <div className="text-xs text-slate-400">
-                      HustleCraft Wealth System
-                    </div>
-                  </Link>
+                <div className="absolute top-full left-0 pt-2 w-72">
+                  <div className="bg-slate-900 border border-slate-800 rounded-lg shadow-xl py-2">
+                    <Link
+                      href="/learn/trading"
+                      className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
+                    >
+                      <div className="font-semibold">Trading Education</div>
+                      <div className="text-xs text-slate-400">
+                        Free guides, lessons, and playbooks
+                      </div>
+                    </Link>
+                    <Link
+                      href="/community"
+                      className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
+                    >
+                      <div className="font-semibold">Community</div>
+                      <div className="text-xs text-slate-400">
+                        Chat, strategy, and build-in-public
+                      </div>
+                    </Link>
+                    <Link
+                      href="/book"
+                      className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors"
+                    >
+                      <div className="font-semibold">The Book</div>
+                      <div className="text-xs text-slate-400">
+                        HustleCraft Wealth System
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
