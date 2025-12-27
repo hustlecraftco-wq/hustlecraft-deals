@@ -1,0 +1,265 @@
+import { NextResponse } from 'next/server';
+
+// Manual fallback deals with REAL Amazon product images
+const MANUAL_DEALS = [
+  {
+    id: '1',
+    deal_id: 1,
+    title: 'Beats Studio Pro - Wireless Bluetooth Noise Cancelling Headphones',
+    description: 'Personalized Spatial Audio, USB-C Lossless Audio, Apple & Android Compatibility, Up to 40 Hours Battery Life - Black',
+    price: 169.95,
+    original_price: 349.99,
+    msrp: 349.99,
+    discount_pct: 51,
+    discount_percentage: 51,
+    category: 'Electronics',
+    link: 'https://amzn.to/3KLtodm',
+    amazon_link: 'https://amzn.to/3KLtodm',
+    image_url: 'https://m.media-amazon.com/images/I/51F5uA-s5UL._AC_SL1500_.jpg',
+    slug: 'beats-studio-pro---wireless-bluetooth-noise-cancelling-headphones-1',
+    source: 'manual',
+    score: 0.9,
+    status: 'active',
+    vendor: 'Amazon',
+    brand: 'Beats'
+  },
+  {
+    id: '2',
+    deal_id: 2,
+    title: 'INSIGNIA 50" Class F50 Series LED 4K UHD Smart Fire TV',
+    description: '50-inch 4K Smart Fire TV with Alexa Voice Remote (NS-50F502NA26)',
+    price: 169.99,
+    original_price: 299.99,
+    msrp: 299.99,
+    discount_pct: 43,
+    discount_percentage: 43,
+    category: 'Electronics',
+    link: 'https://amzn.to/3J3rAvS',
+    amazon_link: 'https://amzn.to/3J3rAvS',
+    image_url: 'https://m.media-amazon.com/images/I/81BeW4LshaL._AC_SL1500_.jpg',
+    slug: 'insignia-50"-class-f50-series-led-4k-uhd-smart-fire-tv-2',
+    source: 'manual',
+    score: 0.9,
+    status: 'active',
+    vendor: 'Amazon',
+    brand: 'INSIGNIA'
+  },
+  {
+    id: '3',
+    deal_id: 3,
+    title: 'SAMSUNG 49" Odyssey G9 Curved Gaming Monitor',
+    description: '49" DQHD 1000R Curved Gaming Monitor, 240Hz, 1ms, DisplayHDR 1000, AMD FreeSync Premium Pro',
+    price: 679.99,
+    original_price: 999.99,
+    msrp: 999.99,
+    discount_pct: 32,
+    discount_percentage: 32,
+    category: 'Electronics',
+    link: 'https://amzn.to/4nhHvVD',
+    amazon_link: 'https://amzn.to/4nhHvVD',
+    image_url: 'https://m.media-amazon.com/images/I/81F+VQmSzpL._AC_SL1500_.jpg',
+    slug: 'samsung-49"-odyssey-g9-curved-gaming-monitor-3',
+    source: 'manual',
+    score: 0.9,
+    status: 'active',
+    vendor: 'Amazon',
+    brand: 'SAMSUNG'
+  }
+];
+
+interface Deal {
+  id?: string;
+  title: string;
+  description?: string;
+  price: number;
+  msrp?: number;
+  original_price?: number;
+  discount_pct: number;
+  brand?: string;
+  vendor?: string;
+  link: string;
+  score?: number;
+  slug?: string;
+  image_url?: string;
+  category?: string;
+  source?: string;
+}
+
+function generateSlug(title: string, id?: string): string {
+  let slug = title.toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim()
+    .substring(0, 80);
+  
+  if (id) {
+    const shortId = id.substring(0, 8);
+    return `${slug}-${shortId}`;
+  }
+  return slug;
+}
+
+// GET endpoint - Read deals from Upstash Redis
+export async function GET() {
+  try {
+    const upstashUrl = process.env.UPSTASH_REDIS_REST_URL;
+    const upstashToken = process.env.UPSTASH_REDIS_REST_TOKEN;
+
+    if (!upstashUrl || !upstashToken) {
+      console.log('Upstash credentials missing, using manual fallback');
+      return NextResponse.json({ 
+        deals: MANUAL_DEALS,
+        source: 'manual_fallback',
+        count: MANUAL_DEALS.length 
+      });
+    }
+
+    // Fetch from Upstash REST API
+    const response = await fetch(`${upstashUrl}/get/deals:all`, {
+      headers: {
+        'Authorization': `Bearer ${upstashToken}`
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`Upstash error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const dealsJson = data.result;
+
+    if (!dealsJson) {
+      console.log('No deals in Upstash, using manual fallback');
+      return NextResponse.json({ 
+        deals: MANUAL_DEALS,
+        source: 'redis_empty',
+        count: MANUAL_DEALS.length 
+      });
+    }
+
+    const deals: Deal[] = JSON.parse(dealsJson);
+
+    // Add slugs if missing
+    deals.forEach(deal => {
+      if (!deal.slug) {
+        deal.slug = generateSlug(deal.title, deal.id);
+      }
+    });
+
+    return NextResponse.json({ 
+      deals,
+      source: 'redis',
+      count: deals.length 
+    });
+
+  } catch (error) {
+    console.error('Error fetching deals:', error);
+    
+    return NextResponse.json({ 
+      deals: MANUAL_DEALS,
+      source: 'error_fallback',
+      count: MANUAL_DEALS.length,
+      error: error instanceof Error ? error.message : 'Unknown error'
+    });
+  }
+}
+
+// POST endpoint - Add new deals from n8n
+export async function POST(request: Request) {
+  try {
+    // Check authentication
+    const authHeader = request.headers.get('authorization');
+    const expectedToken = process.env.N8N_WEBHOOK_TOKEN || 'hustlecraft-n8n-secret-2024';
+    
+    if (!authHeader || authHeader !== `Bearer ${expectedToken}`) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+
+    const upstashUrl = process.env.UPSTASH_REDIS_REST_URL;
+    const upstashToken = process.env.UPSTASH_REDIS_REST_TOKEN;
+
+    if (!upstashUrl || !upstashToken) {
+      return NextResponse.json(
+        { error: 'Upstash not configured' },
+        { status: 500 }
+      );
+    }
+    
+    // Get new deals from n8n
+    const newDeals: Deal[] = await request.json();
+    const dealsArray = Array.isArray(newDeals) ? newDeals : [newDeals];
+    
+    // Get existing deals from Upstash
+    const getResponse = await fetch(`${upstashUrl}/get/deals:all`, {
+      headers: {
+        'Authorization': `Bearer ${upstashToken}`
+      }
+    });
+
+    let existingDeals: Deal[] = MANUAL_DEALS; // Start with manual deals
+    
+    if (getResponse.ok) {
+      const getData = await getResponse.json();
+      if (getData.result) {
+        try {
+          existingDeals = JSON.parse(getData.result);
+        } catch (e) {
+          console.warn('Could not parse existing deals, starting fresh');
+        }
+      }
+    }
+    
+    // Merge new deals with existing (prevent duplicates by link)
+    const existingLinks = new Set(existingDeals.map(d => d.link));
+    const uniqueNewDeals = dealsArray.filter(deal => !existingLinks.has(deal.link));
+    
+    // Add slugs to new deals
+    uniqueNewDeals.forEach(deal => {
+      if (!deal.slug) {
+        deal.slug = generateSlug(deal.title, deal.id);
+      }
+      if (!deal.id) {
+        deal.id = deal.link.split('/').pop() || `deal-${Date.now()}`;
+      }
+    });
+    
+    // Merge: new deals first, then existing
+    const updatedDeals = [...uniqueNewDeals, ...existingDeals];
+    
+    // Keep only the most recent 100 deals
+    const trimmedDeals = updatedDeals.slice(0, 100);
+    
+    // Save back to Upstash with 7 day expiry
+    const setResponse = await fetch(`${upstashUrl}/setex/deals:all/604800`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${upstashToken}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(JSON.stringify(trimmedDeals))
+    });
+
+    if (!setResponse.ok) {
+      throw new Error(`Failed to save to Upstash: ${setResponse.status}`);
+    }
+    
+    return NextResponse.json({
+      success: true,
+      added: uniqueNewDeals.length,
+      duplicates: dealsArray.length - uniqueNewDeals.length,
+      total: trimmedDeals.length
+    });
+    
+  } catch (error) {
+    console.error('Error adding deals:', error);
+    return NextResponse.json(
+      { error: 'Failed to add deals', details: error instanceof Error ? error.message : 'Unknown' },
+      { status: 500 }
+    );
+  }
+}
+// Force rebuild: Fri Oct 10 12:15:36 PM EDT 2025
