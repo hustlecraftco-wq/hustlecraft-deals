@@ -1,100 +1,115 @@
 'use client';
-
 import Link from 'next/link';
 import { useState } from 'react';
-import EmailSignupModal from './EmailSignupModal';
 
 export default function Navigation() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [emailModalOpen, setEmailModalOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
+  const [learnOpen, setLearnOpen] = useState(false);
 
   return (
-    <>
-      <nav className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-lg border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/95 backdrop-blur-sm border-b border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">⚡</span>
+            </div>
+            <span className="text-white font-bold text-xl">HustleCraft</span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {/* Products Dropdown */}
+            <div className="relative">
+              <button
+                onMouseEnter={() => setProductsOpen(true)}
+                onMouseLeave={() => setProductsOpen(false)}
+                className="text-slate-300 hover:text-white font-medium transition-colors flex items-center gap-1"
+              >
+                Products
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
-              </div>
-              <span className="text-xl font-bold text-white">HustleCraft</span>
+              </button>
+              {productsOpen && (
+                <div
+                  onMouseEnter={() => setProductsOpen(true)}
+                  onMouseLeave={() => setProductsOpen(false)}
+                  className="absolute top-full left-0 mt-2 w-64 bg-slate-900 border border-slate-800 rounded-lg shadow-xl py-2"
+                >
+                  <Link href="/funnels" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                    <div className="font-semibold">Local Service Funnels</div>
+                    <div className="text-xs text-slate-400">Turn Google visits into calls</div>
+                  </Link>
+                  <Link href="/markets" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                    <div className="font-semibold">Trading Tools</div>
+                    <div className="text-xs text-slate-400">VIX tracking & analysis</div>
+                  </Link>
+                  <Link href="/deals" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                    <div className="font-semibold">Deals</div>
+                    <div className="text-xs text-slate-400">Curated discounts & value</div>
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Learn Dropdown */}
+            <div className="relative">
+              <button
+                onMouseEnter={() => setLearnOpen(true)}
+                onMouseLeave={() => setLearnOpen(false)}
+                className="text-slate-300 hover:text-white font-medium transition-colors flex items-center gap-1"
+              >
+                Learn
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {learnOpen && (
+                <div
+                  onMouseEnter={() => setLearnOpen(true)}
+                  onMouseLeave={() => setLearnOpen(false)}
+                  className="absolute top-full left-0 mt-2 w-64 bg-slate-900 border border-slate-800 rounded-lg shadow-xl py-2"
+                >
+                  <Link href="/learn/trading" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                    <div className="font-semibold">Trading Education</div>
+                    <div className="text-xs text-slate-400">Free courses & guides</div>
+                  </Link>
+                  <Link href="/community" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                    <div className="font-semibold">Community</div>
+                    <div className="text-xs text-slate-400">Chat, forums, & hangouts</div>
+                  </Link>
+                  <Link href="/book" className="block px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                    <div className="font-semibold">The Book</div>
+                    <div className="text-xs text-slate-400">HustleCraft Wealth System</div>
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* About Link */}
+            <Link href="/about" className="text-slate-300 hover:text-white font-medium transition-colors">
+              About
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
-              <Link href="/deals" className="text-slate-300 hover:text-white transition-colors font-medium">
-                All Deals
-              </Link>
-              <Link href="/categories" className="text-slate-300 hover:text-white transition-colors font-medium">
-                Categories
-              </Link>
-              <Link href="/playbook" className="text-slate-300 hover:text-white transition-colors font-medium">
-                Playbook
-              </Link>
-              <Link href="/about" className="text-slate-300 hover:text-white transition-colors font-medium">
-                About
-              </Link>
-              <button 
-                onClick={() => setEmailModalOpen(true)}
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors"
-              >
-                Get Alerts
-              </button>
-            </div>
-
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-slate-300 hover:text-white"
+            {/* CTA Button */}
+            <Link
+              href="/community"
+              className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all hover:scale-105"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {mobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+              Stay Connected
+            </Link>
           </div>
 
-          {/* Mobile Menu */}
-          {mobileMenuOpen && (
-            <div className="md:hidden py-4 border-t border-slate-800">
-              <div className="flex flex-col gap-4">
-                <Link href="/deals" className="text-slate-300 hover:text-white transition-colors font-medium">
-                  All Deals
-                </Link>
-                <Link href="/categories" className="text-slate-300 hover:text-white transition-colors font-medium">
-                  Categories
-                </Link>
-                <Link href="/playbook" className="text-slate-300 hover:text-white transition-colors font-medium">
-                  Playbook
-                </Link>
-                <Link href="/about" className="text-slate-300 hover:text-white transition-colors font-medium">
-                  About
-                </Link>
-                <button 
-                  onClick={() => {
-                    setEmailModalOpen(true);
-                    setMobileMenuOpen(false);
-                  }}
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors"
-                >
-                  Get Alerts
-                </button>
-              </div>
-            </div>
-          )}
+          {/* Mobile Menu Button */}
+          <button className="md:hidden text-slate-300">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
         </div>
-      </nav>
-
-      <EmailSignupModal 
-        isOpen={emailModalOpen} 
-        onClose={() => setEmailModalOpen(false)} 
-      />
-    </>
+      </div>
+    </nav>
   );
 }
