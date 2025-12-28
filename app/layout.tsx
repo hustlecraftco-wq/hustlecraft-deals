@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import "../src/styles/globals.css";
-import Navigation from "@/components/Navigation";
 
 export const metadata: Metadata = {
-  title: "HustleCraft | Building Digital Assets",
-  description: "High-performance products for builders, traders, and service businesses.",
-};
+  title: "LocalWebsitePr",
+  description: "Professional websites for local service businesses. Fast, conversion-focused sites built with Next.js.",};
 
 export default function RootLayout({
   children,
@@ -15,7 +13,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased bg-slate-950">
-        <Navigation />
         <main className="pt-16">{children}</main>
       </body>
     </html>
