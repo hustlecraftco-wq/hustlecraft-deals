@@ -26,18 +26,18 @@ export default function HomePage() {
         />
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-center px-4">
           <h1 className="text-5xl sm:text-6xl font-extrabold text-white mb-2 drop-shadow-lg">
-            Building Digital Assets
+            LocalWebsitePro
           </h1>
           <p className="text-slate-300 max-w-3xl mx-auto text-lg sm:text-2xl mt-2">
-            High-performance products for builders, traders, and service businesses.
+            Professional websites for local service businesses.
             <br />
             <span className="text-blue-400 font-bold">
-              Automate income. Measure results. Make moves.
+              Turn your 5-star Google reviews into more calls and booked jobs.
             </span>
           </p>
           <p className="mt-3 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700 text-xs uppercase tracking-wide text-slate-300">
             <span className="text-green-400">●</span>
-            Veteran owned • Built by a working trader
+            Veteran owned • Built by a working developer
           </p>
         </div>
       </section>
@@ -49,13 +49,13 @@ export default function HomePage() {
           <div className="bg-gradient-to-br from-blue-900/40 to-blue-800/20 rounded-xl p-8 border border-blue-700/50 shadow-xl flex flex-col">
             <div className="text-5xl mb-4">💼</div>
             <h2 className="text-2xl font-bold text-blue-300 mb-1">
-              Local Service Funnels
+              Local Service Websites
             </h2>
             <p className="text-slate-400 text-xs mb-3">
               Turn your Google profile into a lead-generation machine
             </p>
             <p className="text-slate-300 text-sm mb-4 flex-grow">
-              Lightning-fast landing pages designed for one thing: getting your phone to ring. Built for plumbers, contractors, handymen, and trades.
+              Lightning-fast websites designed for one thing: getting your phone to ring. Built for plumbers, HVAC, contractors, electricians, and all local service pros.
             </p>
             <ul className="text-slate-400 space-y-2 text-xs mb-4">
               <li>✓ Sub-2.5s load times</li>
@@ -64,14 +64,14 @@ export default function HomePage() {
               <li>✓ Flat pricing, no agency BS</li>
             </ul>
             <p className="text-xs text-blue-300 font-semibold mb-6">
-              83% average conversion rate increase*
+              Custom-coded, not templates
             </p>
             <div className="mt-auto flex items-center gap-4">
               <Link
                 href="/funnels"
                 className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all hover:scale-105 text-center text-sm"
               >
-                Explore Funnels →
+                Explore Websites →
               </Link>
               <Link
                 href="/funnels#pricing"
@@ -83,7 +83,10 @@ export default function HomePage() {
           </div>
 
           {/* Trading Tools & Analysis */}
-          <div className="bg-gradient-to-br from-purple-900/40 to-purple-800/20 rounded-xl p-8 border border-purple-700/50 shadow-xl flex flex-col">
+          <div className="bg-gradient-to-br from-purple-900/40 to-purple-800/20 rounded-xl p-8 border border-purple-700/50 shadow-xl flex flex-col relative">
+            <div className="absolute top-4 right-4 px-2 py-1 bg-purple-800/50 rounded text-xs text-purple-300 border border-purple-600/50">
+              BETA
+            </div>
             <div className="text-5xl mb-4">📊</div>
             <h2 className="text-2xl font-bold text-purple-300 mb-1">
               Trading Tools & Analysis
@@ -120,7 +123,10 @@ export default function HomePage() {
           </div>
 
           {/* Deals & Community */}
-          <div className="bg-gradient-to-br from-green-900/40 to-green-800/20 rounded-xl p-8 border border-green-700/50 shadow-xl flex flex-col">
+          <div className="bg-gradient-to-br from-green-900/40 to-green-800/20 rounded-xl p-8 border border-green-700/50 shadow-xl flex flex-col relative">
+            <div className="absolute top-4 right-4 px-2 py-1 bg-green-800/50 rounded text-xs text-green-300 border border-green-600/50">
+              BETA
+            </div>
             <div className="text-5xl mb-4">🎯</div>
             <h2 className="text-2xl font-bold text-green-300 mb-1">
               Deals & Community
@@ -164,7 +170,7 @@ export default function HomePage() {
           <div>
             <p className="text-4xl font-bold text-blue-400 mb-2">&lt;2.5s</p>
             <p className="text-slate-400 text-sm">
-              Average funnel load time on mobile
+              Average website load time on mobile
             </p>
           </div>
           <div>
@@ -184,10 +190,10 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="mt-auto py-6 bg-slate-950 text-center text-slate-400 border-t border-slate-800">
-        HustleCraft &copy; {new Date().getFullYear()} — Building funnels. Automating income. Making moves.
+        LocalWebsitePro &copy; {new Date().getFullYear()} — Professional websites for local service businesses.
         <br />
         <span className="text-xs">
-          Local service funnels • Trading dashboards • Community playbooks
+          Custom-coded sites • Trading dashboards • Community resources
         </span>
       </footer>
     </div>
