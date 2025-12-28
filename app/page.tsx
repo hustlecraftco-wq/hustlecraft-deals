@@ -85,7 +85,7 @@ export default function HomePage() {
           </div>
 
           <div className="bg-slate-900/50 backdrop-blur-sm rounded-xl p-8 border border-slate-800 shadow-xl">
-          <div className="text-4xl mb-4">📊</div>
+          <div className="text-4xl mb-4📊div>
             <h3 className="text-2xl font-bold text-white mb-4">Know Your ROI</h3>
             <p className="text-slate-300 text-lg">
               See exactly how many calls and jobs came from your site. Google Analytics 4 setup, lead tracking, monthly reports.
