@@ -207,7 +207,7 @@ export default function FunnelsPage() {
 
       {/* Why Choose Us */}
       <section className="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
-        <h2 className="text-3xl font-bold text-white mb-8 text-center">Why Choose HustleCraft</h2>
+        <h2 className="text-3xl font-bold text-white mb-8 text-center">Why Choose LocalWebsitePro</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-slate-900 rounded-xl p-6 border border-slate-800">
             <h3 className="text-lg font-bold text-blue-300 mb-3">💨 Obsessively Fast</h3>
@@ -285,9 +285,9 @@ export default function FunnelsPage() {
             </ul>
           </div>
 
-          {/* The HustleCraft Difference */}
+          {/* The LocalWebsitePro Difference */}
           <div className="bg-green-900/20 border border-green-700/30 rounded-xl p-8">
-            <h3 className="text-2xl font-bold text-green-300 mb-4">✅ HustleCraft Custom Funnels</h3>
+            <h3 className="text-2xl font-bold text-green-300 mb-4">✅ LocalWebsitePro Custom Funnels</h3>
             <ul className="space-y-4 text-slate-300 text-sm">
               <li className="flex gap-3">
                 <span className="text-green-400 font-bold">&lt;2.5s</span>
@@ -324,7 +324,7 @@ export default function FunnelsPage() {
               <p className="text-2xl font-bold text-red-400 mt-3">= $4,000/mo</p>
             </div>
             <div className="text-center p-6 bg-green-900/10 rounded-lg border border-green-700/30">
-              <p className="text-green-300 font-semibold mb-2">HustleCraft Funnel</p>
+              <p className="text-green-300 font-semibold mb-2">LocalWebsitePro Funnel</p>
               <p className="text-4xl font-bold text-white mb-2">25</p>
               <p className="text-slate-400 text-sm">Leads per month (2.5x increase)</p>
               <p className="text-2xl font-bold text-green-400 mt-3">= $10,000/mo</p>
@@ -710,10 +710,10 @@ export default function FunnelsPage() {
       {/* Footer */}
       <footer className="mt-auto py-6 bg-slate-950 text-center text-slate-400 border-t border-slate-800">
         <Link href="/" className="text-blue-400 hover:text-blue-300 mb-2 inline-block">
-          ← Back to HustleCraft
+          ← Back to Home
         </Link>
         <br />
-        HustleCraft Funnels &copy; {new Date().getFullYear()} — Building leads for local service businesses.
+        LocalWebsitePro Funnels &copy; {new Date().getFullYear()} — — Professional websites for local service businesses.
       </footer>
     </div>
   );
