@@ -638,50 +638,52 @@ export default function FunnelsPage() {
               </p>
             </div>
             <div className="mb-6 p-4 bg-purple-900/20 rounded-lg border border-purple-700/50">
-              <p className="text-purple-300 text-sm
-              <div className="space-y-2 text-xs text-slate-300">
-                <div className="flex justify-between">
-                  <span>• AI chatbot lead qualifier</span>
-                  <span className="text-purple-400">+ $75/mo</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>• SMS auto-reply & follow-up</span>
-                  <span className="text-purple-400">+ $30/mo</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>• Automated review requests</span>
-                  <span className="text-purple-400">+ $50/mo</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>• Real-time lead dashboard</span>
-                  <span className="text-purple-400">+ $100/mo</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>• Lead scoring & prioritization</span>
-                  <span className="text-purple-400">+ $75/mo</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>• Automated email/SMS sequences</span>
-                  <span className="text-purple-400">+ $40/mo</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>• Advanced booking/scheduling</span>
-                  <span className="text-purple-400">+ $50/mo</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>• Heatmaps & session recording</span>
-                  <span className="text-purple-400">+ $40/mo</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>• Multi-language support</span>
-                  <span className="text-purple-400">+ $75/mo</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>• Custom CRM/API integrations</span>
-                  <span className="text-purple-400">+ $200–500/mo</span>
-                </div>
+            <p className="text-purple-300 text-sm font-semibold mb-3">
+              Everything in Managed Growth, plus optional add‑ons:
+            </p>
+            <div className="space-y-2 text-xs text-slate-300">
+              <div className="flex justify-between">
+                <span>• AI chatbot lead qualifier</span>
+                <span className="text-purple-400">+ $75/mo</span>
+              </div>
+              <div className="flex justify-between">
+                <span>• SMS auto-reply &amp; follow-up</span>
+                <span className="text-purple-400">+ $30/mo</span>
+              </div>
+              <div className="flex justify-between">
+                <span>• Automated review requests</span>
+                <span className="text-purple-400">+ $50/mo</span>
+              </div>
+              <div className="flex justify-between">
+                <span>• Real-time lead dashboard</span>
+                <span className="text-purple-400">+ $100/mo</span>
+              </div>
+              <div className="flex justify-between">
+                <span>• Lead scoring &amp; prioritization</span>
+                <span className="text-purple-400">+ $75/mo</span>
+              </div>
+              <div className="flex justify-between">
+                <span>• Automated email/SMS sequences</span>
+                <span className="text-purple-400">+ $40/mo</span>
+              </div>
+              <div className="flex justify-between">
+                <span>• Advanced booking/scheduling</span>
+                <span className="text-purple-400">+ $50/mo</span>
+              </div>
+              <div className="flex justify-between">
+                <span>• Heatmaps &amp; session recording</span>
+                <span className="text-purple-400">+ $40/mo</span>
+              </div>
+              <div className="flex justify-between">
+                <span>• Multi-language support</span>
+                <span className="text-purple-400">+ $75/mo</span>
+              </div>
+              <div className="flex justify-between">
+                <span>• Custom CRM/API integrations</span>
+                <span className="text-purple-400">+ $200–500/mo</span>
               </div>
             </div>
+          </div>
 
             <ul className="space-y-3 mb-8 text-slate-300 text-sm flex-grow">
               <li>✓ Everything in Managed Growth, plus advanced automation</li>
