@@ -33,8 +33,8 @@ export default function FunnelsPage() {
   // --- SPEED TEST LOGIC ---
   const [speedTestActive, setSpeedTestActive] = useState(false);
   const [speedTestDone, setSpeedTestDone] = useState(false);
+    const [displayValue, setDisplayValue] = useState("0.0");
   const count = useMotionValue(0);
-  const rounded = useTransform(count, (latest) => latest.toFixed(1));
 
   const runSpeedTest = () => {
     if (speedTestActive) return;
@@ -44,6 +44,7 @@ export default function FunnelsPage() {
     animate(count, 3.2, { 
       duration: 2.5, 
       ease: "circOut",
+            onUpdate: (latest) => setDisplayValue(latest.toFixed(1)),
       onComplete: () => setSpeedTestDone(true)
     });
   };
@@ -52,6 +53,7 @@ export default function FunnelsPage() {
     count.set(0);
     setSpeedTestActive(false);
     setSpeedTestDone(false);
+        setDisplayValue("0.0");
   };
 
   // --- STYLES ---
@@ -112,8 +114,7 @@ export default function FunnelsPage() {
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                   <div className="text-center">
                     <p className="text-xs uppercase tracking-widest text-orange-500 font-black mb-1">Competitors</p>
-                    <motion.p className="text-5xl font-mono font-black text-white">{rounded}s</motion.p>
-                  </div>
+                                <p className="text-5xl font-mono font-black text-white">{displayValue}s</p>                    </div>
                   <div className="hidden md:block h-12 w-px bg-white/10" />
                   <div className="text-center">
                     <p className="text-xs uppercase tracking-widest text-emerald-400 font-black mb-1">Your Asset</p>
