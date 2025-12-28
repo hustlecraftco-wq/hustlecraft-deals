@@ -69,7 +69,7 @@ export default function FunnelsPage() {
           <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover opacity-30">
               <source src="https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-construction-worker-3984-large.mp4" type="video/mp4" />
           </video>
-                     {/* Lighter Gradient Overlay so it's not too dark */}
+                     {/* Lighter Gradient Overlay so it is not too dark */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#050505] overflow-hidden border-b border-white/via-[#050505]/505 bg-[#050505]"> to-blue-900/20" />
                     </div>
 
