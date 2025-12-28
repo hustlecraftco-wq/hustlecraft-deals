@@ -268,7 +268,7 @@ export default function FunnelsPage() {
             <h3 className="text-2xl font-bold text-blue-300 mb-2">Build & Own</h3>
             <p className="text-slate-400 mb-6 text-sm">For businesses that want to own their funnel outright and handle monthly costs themselves.</p>
             <div className="mb-6">
-              <p className="text-5xl font-bold text-white">$1,000</p>
+              <p className="text-5xl font-bold text-white">$999</p>
               <p className="text-slate-400 text-sm">One-time payment</p>
             </div>
             <div className="mb-6 p-4 bg-slate-800/50 rounded-lg border border-slate-700">
@@ -320,7 +320,7 @@ export default function FunnelsPage() {
               <li>✓ Unlimited photo/content updates</li>
               <li>✓ Monthly conversion optimization</li>
               <li>✓ Real-time call/form alerts</li>
-              <li>✓ Priority email support (24hr response)</li>
+              <li>✓ Priority email support</li>
               <li>✓ A/B testing & form tweaks</li>
               <li>✓ Annual domain renewal included</li>
               <li>✓ Performance monitoring & fixes</li>
@@ -333,41 +333,100 @@ export default function FunnelsPage() {
             </div>
           </div>
 
-          {/* Growth Partner */}
+	            {/* Growth Partner */}
           <div className="bg-gradient-to-br from-purple-900/40 to-slate-900 rounded-xl p-8 border border-purple-700/50 shadow-xl flex flex-col">
             <h3 className="text-2xl font-bold text-purple-300 mb-2">Growth Partner</h3>
-            <p className="text-slate-400 mb-6 text-sm">For established businesses ready to dominate their market with a full growth system.</p>
+            <p className="text-slate-400 mb-6 text-sm">For businesses that need advanced tech, automation, and custom integrations. Built to scale.</p>
             <div className="mb-6">
-              <p className="text-4xl font-bold text-white">Custom</p>
-              <p className="text-slate-400 text-sm">Starting at $2,500</p>
-              <p className="text-slate-400 text-xs mt-1">+ monthly retainer based on scope</p>
+              <p className="text-4xl font-bold text-white">$2,500</p>
+              <p className="text-slate-400 text-sm">One-time setup (always flat)</p>
+              <p className="text-2xl font-bold text-purple-400 mt-2">+ $199/mo</p>
+              <p className="text-slate-400 text-xs">Base retainer + add-ons you choose</p>
             </div>
+            
             <div className="mb-6 p-4 bg-purple-900/20 rounded-lg border border-purple-700/50">
-              <p className="text-purple-300 text-sm font-semibold mb-2">Strategic partnership includes:</p>
-              <p className="text-slate-300 text-xs">• High-performance funnel + content strategy</p>
-              <p className="text-slate-300 text-xs">• Ongoing SEO, CRO, & conversion audits</p>
-              <p className="text-slate-300 text-xs">• Monthly content & optimization calls</p>
-              <p className="text-slate-300 text-xs">• Full-service growth consulting</p>
+              <p className="text-purple-300 text-sm font-semibold mb-3">Everything in Managed Growth, PLUS choose from:</p>
+              
+              <div className="space-y-2 text-xs text-slate-300">
+                <div className="flex justify-between">
+                  <span>• AI Chatbot (24/7 lead qualifier)</span>
+                  <span className="text-purple-400">+$75/mo</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>• SMS Auto-Reply System</span>
+                  <span className="text-purple-400">+$30/mo</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>• Automated Review Requests</span>
+                  <span className="text-purple-400">+$50/mo</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>• Real-Time Lead Dashboard</span>
+                  <span className="text-purple-400">+$100/mo</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>• Lead Scoring & Prioritization</span>
+                  <span className="text-purple-400">+$75/mo</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>• Automated Follow-Up Sequences</span>
+                  <span className="text-purple-400">+$40/mo</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>• Advanced Booking/Scheduling</span>
+                  <span className="text-purple-400">+$50/mo</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>• 3D Product Visualization</span>
+                  <span className="text-purple-400">+$150/mo</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>• Dynamic Pricing Calculator</span>
+                  <span className="text-purple-400">+$100/mo</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>• Heatmap & Session Recording</span>
+                  <span className="text-purple-400">+$40/mo</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>• Multi-Language Support</span>
+                  <span className="text-purple-400">+$75/mo</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>• Custom CRM/API Integrations</span>
+                  <span className="text-purple-400">+$200-500/mo</span>
+                </div>
+              </div>
             </div>
+
             <ul className="space-y-3 mb-8 text-slate-300 text-sm flex-grow">
-              <li>✓ Everything in Managed Growth, plus:</li>
-              <li>✓ Content strategy & execution</li>
-              <li>✓ Advanced conversion rate optimization</li>
-              <li>✓ Bi-weekly strategy calls</li>
-              <li>✓ Custom integrations (CRM, automation)</li>
-              <li>✓ Dedicated account manager</li>
-              <li>✓ Multi-page expansion (if needed)</li>
-              <li>✓ Quarterly growth planning sessions</li>
+              <li>✓ Custom funnel with advanced integrations</li>
+              <li>✓ LLM/AI-powered chatbots & automation</li>
+              <li>✓ Deep CRM integration (HubSpot, Pipedrive, etc.)</li>
+              <li>✓ Real-time analytics & performance dashboards</li>
+              <li>✓ 3D visualization & interactive experiences</li>
+              <li>✓ E-commerce & payment processing</li>
+              <li>✓ Multi-page expansion with complex logic</li>
+              <li>✓ Async support via Slack/email (no meetings)</li>
+              <li>✓ Choose only the features you need</li>
             </ul>
+            
             <div className="mt-auto">
-              <p className="text-xs text-slate-400 mb-3 text-center">Best for: $500k+ revenue businesses serious about market dominance</p>
+              <p className="text-xs text-slate-400 mb-3 text-center italic">
+                "Most businesses have no idea this tech exists. We build what others can't."
+              </p>
+              <p className="text-xs text-slate-500 mb-3 text-center">
+                Best for: Tech-forward businesses ready to automate and scale
+              </p>
               <button className="w-full px-6 py-3 bg-purple-700 hover:bg-purple-800 text-white font-bold rounded-lg transition-all">
                 Schedule Consultation
               </button>
             </div>
           </div>
+          {/* End Growth Partner */}
 
         </div>
+        {/* End pricing grid */}
 
         <div className="mt-12 text-center">
           <p className="text-slate-400 text-sm mb-4">
@@ -378,6 +437,7 @@ export default function FunnelsPage() {
           </p>
         </div>
       </section>
+      {/* End Pricing Section */}
 
       {/* FAQ */}
       <section className="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
