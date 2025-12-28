@@ -63,12 +63,18 @@ export default function FunnelsPage() {
     <main className="min-h-screen bg-[#050505] text-white font-sans selection:bg-emerald-500/30 selection:text-white overflow-x-hidden">
       
       {/* --- HERO SECTION --- */}
-      <section className="relative h-screen min-h-[850px] flex items-center justify-center overflow-hidden border-b border-white/5">
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover opacity-30">
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-construction-worker-3984-large.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-blue-900/20" />
+      <section className="relative h-screen min-h-[850px] flex items-center justify-center overflow-hidden border-b border-white/5 bg-[#050505]">
+        {/* Background Video - Now strictly positioned */}
+        <div className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"></div>
+          <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover opacity-30">
+              <source src="https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-construction-worker-3984-large.mp4" type="video/mp4" />
+          </video>
+                     {/* Lighter Gradient Overlay so it's not too dark */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] overflow-hidden border-b border-white/via-[#050505]/505 bg-[#050505]"> to-blue-900/20" />
+                    </div>
 
+
+        {/* Content - Forced to Z-10 to sit on top */}
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center pt-20">
           <motion.span 
             initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}
