@@ -28,10 +28,10 @@ export default function FunnelsPage() {
       <section className="w-full bg-gradient-to-r from-blue-900/40 to-blue-800/30 border-b border-blue-700/50 py-16 sm:py-24">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-blue-300 mb-4">
-            More Calls. More Jobs. Zero Fluff.
+            More Calls. More Jobs. More Money.
           </h1>
           <p className="text-slate-200 text-lg sm:text-xl max-w-3xl mx-auto mb-8">
-            High-speed, conversion-focused landing pages built for local service businesses. 
+            Custom-coded, high-speed funnels built for local service businesses. Not templates. Not WordPress. Pure performance. 
             Get more phone calls and quote requests from your customers.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -336,6 +336,36 @@ export default function FunnelsPage() {
           </p>
         </div>
 
+      {/* Technology Stack */}
+      <section className="max-w-5xl mx-auto px-4 py-12 bg-slate-900/50 rounded-xl border border-slate-800">
+        <h3 className="text-2xl font-bold text-blue-300 mb-6 text-center">How We Build Your Funnel</h3>
+        <p className="text-slate-300 text-center mb-8 max-w-2xl mx-auto">
+          We don't use Wix, WordPress, or GoHighLevel. Every funnel is <strong className="text-blue-400">custom-coded from scratch</strong> using 
+          enterprise-grade tools built for speed and conversions.
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="text-center p-4 bg-slate-800 rounded-lg">
+            <p className="text-2xl font-bold text-blue-400 mb-2">Next.js</p>
+            <p className="text-slate-400 text-xs">React framework with SSR</p>
+          </div>
+          <div className="text-center p-4 bg-slate-800 rounded-lg">
+            <p className="text-2xl font-bold text-green-400 mb-2">Vercel</p>
+            <p className="text-slate-400 text-xs">Global edge network</p>
+          </div>
+          <div className="text-center p-4 bg-slate-800 rounded-lg">
+            <p className="text-2xl font-bold text-purple-400 mb-2">Tailwind</p>
+            <p className="text-slate-400 text-xs">Custom design system</p>
+          </div>
+          <div className="text-center p-4 bg-slate-800 rounded-lg">
+            <p className="text-2xl font-bold text-orange-400 mb-2">TypeScript</p>
+            <p className="text-slate-400 text-xs">Type-safe code</p>
+          </div>
+        </div>
+        <p className="text-slate-400 text-center mt-6 text-sm">
+          <strong className="text-white">Not a template.</strong> Not a page builder. Custom React code optimized for your business.
+        </p>
+      </section>
+
         {/* Technical Superiority */}
         <div className="mt-12 bg-slate-900 border border-slate-800 rounded-xl p-8">
           <h3 className="text-xl font-bold text-purple-300 mb-4 text-center">Built Different: Custom Code vs Templates</h3>
@@ -578,6 +608,14 @@ export default function FunnelsPage() {
             <p className="text-slate-300">
               That's included in your monthly maintenance. Photo swaps, service updates, copy changes, and A/B tests are 
               all part of the package.
+            </p>
+          </div>
+          <div className="bg-slate-900 rounded-xl p-6 border border-slate-800">
+            <h3 className="text-lg font-bold text-blue-300 mb-2">Is this built on a platform like Wix or GoHighLevel?</h3>
+            <p className="text-slate-300">
+              No. Every funnel is custom-coded in Next.js and deployed on Vercel's global edge network. You're not locked into a platform. 
+              You own the code, the domain, and all accounts. If you ever want to leave, you can take everything with you or hire any developer 
+              to maintain it.
             </p>
           </div>
           <div className="bg-slate-900 rounded-xl p-6 border border-slate-800">
