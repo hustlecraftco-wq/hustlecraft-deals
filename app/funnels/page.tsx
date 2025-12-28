@@ -254,6 +254,108 @@ export default function FunnelsPage() {
         </div>
       </section>
 
+      {/* The Cost of Cheap Websites */}
+      <section className="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
+        <h2 className="text-3xl font-bold text-white mb-4 text-center">Why Cheap Templates Are Killing Your Business</h2>
+        <p className="text-slate-300 text-center mb-12 max-w-3xl mx-auto">
+          Most "affordable" website builders promise easy setup. What they don't tell you is how much money you're losing every day.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          {/* The Template Problem */}
+          <div className="bg-red-900/20 border border-red-700/30 rounded-xl p-8">
+            <h3 className="text-2xl font-bold text-red-300 mb-4">❌ Template Builders (Wix, Squarespace, GoDaddy)</h3>
+            <ul className="space-y-4 text-slate-300 text-sm">
+              <li className="flex gap-3">
+                <span className="text-red-400 font-bold">5-10s</span>
+                <span>Average mobile load time. <strong>53% of visitors abandon sites over 3 seconds.</strong></span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-red-400 font-bold">2-3%</span>
+                <span>Average conversion rate. Poor mobile UX and slow speed kill conversions.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-red-400 font-bold">0</span>
+                <span>Real tracking. No idea how many calls or leads your site generates.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-red-400 font-bold">Generic</span>
+                <span>Same templates used by thousands of competitors. Zero differentiation.</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* The HustleCraft Difference */}
+          <div className="bg-green-900/20 border border-green-700/30 rounded-xl p-8">
+            <h3 className="text-2xl font-bold text-green-300 mb-4">✅ HustleCraft Custom Funnels</h3>
+            <ul className="space-y-4 text-slate-300 text-sm">
+              <li className="flex gap-3">
+                <span className="text-green-400 font-bold">&lt;2.5s</span>
+                <span>Mobile load time. Built on Next.js with server-side rendering and optimized images.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-green-400 font-bold">5-8%+</span>
+                <span>Target conversion rate. Case studies show 30-90% lifts after CRO implementation.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-green-400 font-bold">100%</span>
+                <span>Full tracking. Know exactly how many calls and quote requests your funnel generates.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-green-400 font-bold">Custom</span>
+                <span>Tailored to your business. Not a template anyone else has.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* The Math */}
+        <div className="bg-slate-900 border border-slate-800 rounded-xl p-8">
+          <h3 className="text-xl font-bold text-blue-300 mb-4 text-center">The ROI Math</h3>
+          <p className="text-slate-300 text-center mb-6">
+            Let's say your average job is worth <strong className="text-blue-400">$2,000</strong> and you close <strong className="text-blue-400">20%</strong> of your leads. 
+            That means each lead is worth <strong className="text-blue-400">$400</strong>.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="text-center p-6 bg-red-900/10 rounded-lg border border-red-700/30">
+              <p className="text-red-300 font-semibold mb-2">Slow Template Site</p>
+              <p className="text-4xl font-bold text-white mb-2">10</p>
+              <p className="text-slate-400 text-sm">Leads per month</p>
+              <p className="text-2xl font-bold text-red-400 mt-3">= $4,000/mo</p>
+            </div>
+            <div className="text-center p-6 bg-green-900/10 rounded-lg border border-green-700/30">
+              <p className="text-green-300 font-semibold mb-2">HustleCraft Funnel</p>
+              <p className="text-4xl font-bold text-white mb-2">25</p>
+              <p className="text-slate-400 text-sm">Leads per month (2.5x increase)</p>
+              <p className="text-2xl font-bold text-green-400 mt-3">= $10,000/mo</p>
+            </div>
+          </div>
+          <p className="text-center text-slate-300 mt-6">
+            A <strong className="text-green-400">$6,000/month revenue increase</strong> makes a $999-$2,500 investment look like a no-brainer. 
+            That's ROI in the first month for most businesses.
+          </p>
+        </div>
+
+        {/* Technical Superiority */}
+        <div className="mt-12 bg-slate-900 border border-slate-800 rounded-xl p-8">
+          <h3 className="text-xl font-bold text-purple-300 mb-4 text-center">Built Different: Custom Code vs Templates</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="text-center">
+              <p className="text-3xl font-bold text-purple-400 mb-2">Next.js</p>
+              <p className="text-slate-400 text-sm">Not Wix. Not WordPress. Modern React framework with SSR for speed.</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl font-bold text-blue-400 mb-2">90+ Lighthouse</p>
+              <p className="text-slate-400 text-sm">Green performance scores. Templates typically score 30-50.</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl font-bold text-green-400 mb-2">You Own It</p>
+              <p className="text-slate-400 text-sm">Full code ownership. No platform lock-in. Leave anytime.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section id="pricing" className="max-w-6xl mx-auto px-4 py-16 border-t border-slate-800">
         <h2 className="text-3xl font-bold text-white mb-4 text-center">Simple, Transparent Pricing</h2>
