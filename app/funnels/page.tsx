@@ -709,9 +709,6 @@ export default function FunnelsPage() {
 
       {/* Footer */}
       <footer className="mt-auto py-6 bg-slate-950 text-center text-slate-400 border-t border-slate-800">
-        <Link href="/" className="text-blue-400 hover:text-blue-300 mb-2 inline-block">
-          ← Back to Home
-        </Link>
         <br />
         LocalWebsitePro Funnels &copy; {new Date().getFullYear()} — — Professional websites for local service businesses.
       </footer>
