@@ -22,7 +22,7 @@ export default function FunnelsPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API delay
+    // Simulate API delay (Replace with real server action later)
     await new Promise(resolve => setTimeout(resolve, 1500));
     console.log("Lead captured:", formData);
     alert(`Success! We received the request for ${formData.businessName}. Expect a text/email within 24 hours.`);
@@ -33,8 +33,8 @@ export default function FunnelsPage() {
   // --- SPEED TEST LOGIC ---
   const [speedTestActive, setSpeedTestActive] = useState(false);
   const [speedTestDone, setSpeedTestDone] = useState(false);
-    const [displayValue, setDisplayValue] = useState("0.0");
   const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => latest.toFixed(1));
 
   const runSpeedTest = () => {
     if (speedTestActive) return;
@@ -44,7 +44,6 @@ export default function FunnelsPage() {
     animate(count, 3.2, { 
       duration: 2.5, 
       ease: "circOut",
-            onUpdate: (latest) => setDisplayValue(latest.toFixed(1)),
       onComplete: () => setSpeedTestDone(true)
     });
   };
@@ -53,12 +52,11 @@ export default function FunnelsPage() {
     count.set(0);
     setSpeedTestActive(false);
     setSpeedTestDone(false);
-        setDisplayValue("0.0");
   };
 
   // --- STYLES ---
   const glassClass = "bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] shadow-2xl";
-  const glassHover = "hover:bg-white/[0.05] hover:border-emerald-500/30 transition-all duration-300";
+  const glassHover = "hover:bg-white/[0.05] hover:border-emerald-500/30 transition-all duration-300 cursor-default";
   const gradientText = "bg-gradient-to-r from-white via-emerald-300 to-emerald-100 bg-clip-text text-transparent";
 
   return (
@@ -74,7 +72,7 @@ export default function FunnelsPage() {
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center pt-20">
           <motion.span 
             initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}
-            className="inline-block py-2 px-6 rounded-full bg-gradient-to-r from-orange-600 to-orange-500 text-white text-xs font-black uppercase tracking-[0.2em] mb-8 shadow-2xl"
+            className="inline-block py-2 px-6 rounded-full bg-gradient-to-r from-orange-600 to-orange-500 text-white text-xs font-black uppercase tracking-[0.2em] mb-8 shadow-2xl border border-orange-500/20"
           >
             KC'S ONLY HAND-CODED AGENCY
           </motion.span>
@@ -94,7 +92,7 @@ export default function FunnelsPage() {
           </motion.p>
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center mb-16">
-            <Link href="#pricing" className="px-10 py-5 bg-gradient-to-r from-orange-600 to-orange-500 rounded-full text-xl font-bold shadow-xl hover:scale-105 transition-transform">
+            <Link href="#pricing" className="px-10 py-5 bg-gradient-to-r from-orange-600 to-orange-500 rounded-full text-xl font-bold shadow-xl shadow-orange-900/20 hover:scale-105 transition-transform">
               Build My $2,997 Asset
             </Link>
             <Link href="#compare" className={`px-10 py-5 ${glassClass} rounded-full text-xl font-bold hover:bg-white/5 transition-all`}>
@@ -106,7 +104,7 @@ export default function FunnelsPage() {
           <div className="max-w-xl mx-auto min-h-[180px]">
             {!speedTestActive ? (
               <button onClick={runSpeedTest} className={`group flex items-center gap-3 mx-auto px-8 py-4 ${glassClass} rounded-2xl hover:border-emerald-400/50 transition-all`}>
-                <span className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"/>
+                <span className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_rgba(52,211,153,0.5)]"/>
                 <span className="font-bold text-slate-300 group-hover:text-white uppercase tracking-widest text-sm">Test My Speed Edge →</span>
               </button>
             ) : (
@@ -114,7 +112,8 @@ export default function FunnelsPage() {
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                   <div className="text-center">
                     <p className="text-xs uppercase tracking-widest text-orange-500 font-black mb-1">Competitors</p>
-                                <p className="text-5xl font-mono font-black text-white">{displayValue}s</p>                    </div>
+                    <motion.p className="text-5xl font-mono font-black text-white">{rounded}s</motion.p>
+                  </div>
                   <div className="hidden md:block h-12 w-px bg-white/10" />
                   <div className="text-center">
                     <p className="text-xs uppercase tracking-widest text-emerald-400 font-black mb-1">Your Asset</p>
@@ -122,9 +121,9 @@ export default function FunnelsPage() {
                   </div>
                 </div>
                 {speedTestDone && (
-                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col items-center mt-6">
-                    <p className="text-center text-emerald-300 font-bold mb-2">In that 2.8s gap, they lost the job.</p>
-                    <button onClick={resetSpeedTest} className="text-[10px] uppercase tracking-widest text-slate-500 hover:text-white transition-colors border-b border-slate-700 pb-0.5">Reset</button>
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col items-center mt-6 border-t border-white/10 pt-4">
+                    <p className="text-center text-emerald-300 font-bold mb-4">In that 2.8s gap, they lost the job.</p>
+                    <button onClick={resetSpeedTest} className="text-[10px] uppercase tracking-widest text-slate-500 hover:text-white transition-colors border-b border-slate-700 pb-0.5">Reset Test</button>
                   </motion.div>
                 )}
               </motion.div>
@@ -134,9 +133,10 @@ export default function FunnelsPage() {
       </section>
 
       {/* --- COMPARISON TABLE --- */}
-      <section id="compare" className="py-24 bg-[#080808] border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className={`text-3xl md:text-5xl font-black text-center mb-16 ${gradientText}`}>Asset Ownership vs. Rental Trap</h2>
+      <section id="compare" className="py-24 bg-[#080808] border-b border-white/5 relative">
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <h2 className={`text-3xl md:text-6xl font-black text-center mb-16 ${gradientText}`}>Asset Ownership vs. Rental Trap</h2>
           <div className={`${glassClass} rounded-3xl overflow-hidden overflow-x-auto`}>
             <table className="w-full text-left border-collapse min-w-[800px]">
               <thead>
@@ -172,8 +172,8 @@ export default function FunnelsPage() {
         </div>
       </section>
 
-      {/* --- WHO THIS IS FOR (Restored) --- */}
-      <section className="py-24 px-6 border-b border-white/5">
+      {/* --- WHO THIS IS FOR --- */}
+      <section className="py-24 px-6 border-b border-white/5 bg-[#050505]">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-white mb-12 text-center">Who This Is For</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -191,20 +191,20 @@ export default function FunnelsPage() {
               </motion.div>
             ))}
           </div>
-          <p className="text-slate-400 text-center mt-12 text-sm uppercase tracking-widest">
+          <p className="text-slate-400 text-center mt-12 text-sm uppercase tracking-widest font-bold">
             If you have a solid Google Business profile but a weak website, this is for you.
           </p>
         </div>
       </section>
 
-      {/* --- WHAT'S INCLUDED (Restored & Styled) --- */}
+      {/* --- WHAT'S INCLUDED --- */}
       <section className="py-24 px-6 bg-[#080808] border-b border-white/5">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-white mb-12 text-center">What's Included</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Funnel */}
-            <div className={`${glassClass} rounded-3xl p-8`}>
-              <h3 className="text-xl font-bold text-emerald-400 mb-6 flex items-center gap-3">🏗️ The Funnel</h3>
+            <div className={`${glassClass} rounded-3xl p-10 hover:border-emerald-500/30 transition-all`}>
+              <h3 className="text-2xl font-bold text-emerald-400 mb-6 flex items-center gap-3">🏗️ The Funnel</h3>
               <ul className="space-y-4 text-slate-300 text-sm">
                 <li className="flex gap-3"><span className="text-emerald-500">✓</span> Mobile-first, single-page design</li>
                 <li className="flex gap-3"><span className="text-emerald-500">✓</span> Service list pulled from GBP</li>
@@ -213,8 +213,8 @@ export default function FunnelsPage() {
               </ul>
             </div>
             {/* Tracking */}
-            <div className={`${glassClass} rounded-3xl p-8`}>
-              <h3 className="text-xl font-bold text-blue-400 mb-6 flex items-center gap-3">📊 The Tracking</h3>
+            <div className={`${glassClass} rounded-3xl p-10 hover:border-blue-500/30 transition-all`}>
+              <h3 className="text-2xl font-bold text-blue-400 mb-6 flex items-center gap-3">📊 The Tracking</h3>
               <ul className="space-y-4 text-slate-300 text-sm">
                 <li className="flex gap-3"><span className="text-blue-500">✓</span> Google Analytics 4 (GA4) setup</li>
                 <li className="flex gap-3"><span className="text-blue-500">✓</span> Call tracking phone number</li>
@@ -223,8 +223,8 @@ export default function FunnelsPage() {
               </ul>
             </div>
             {/* Performance */}
-            <div className={`${glassClass} rounded-3xl p-8`}>
-              <h3 className="text-xl font-bold text-purple-400 mb-6 flex items-center gap-3">⚡ The Performance</h3>
+            <div className={`${glassClass} rounded-3xl p-10 hover:border-purple-500/30 transition-all`}>
+              <h3 className="text-2xl font-bold text-purple-400 mb-6 flex items-center gap-3">⚡ The Performance</h3>
               <ul className="space-y-4 text-slate-300 text-sm">
                 <li className="flex gap-3"><span className="text-purple-500">✓</span> Built on Next.js (React)</li>
                 <li className="flex gap-3"><span className="text-purple-500">✓</span> Green Lighthouse scores (90+)</li>
@@ -233,8 +233,8 @@ export default function FunnelsPage() {
               </ul>
             </div>
             {/* Support */}
-            <div className={`${glassClass} rounded-3xl p-8`}>
-              <h3 className="text-xl font-bold text-orange-400 mb-6 flex items-center gap-3">🛠️ The Support</h3>
+            <div className={`${glassClass} rounded-3xl p-10 hover:border-orange-500/30 transition-all`}>
+              <h3 className="text-2xl font-bold text-orange-400 mb-6 flex items-center gap-3">🛠️ The Support</h3>
               <ul className="space-y-4 text-slate-300 text-sm">
                 <li className="flex gap-3"><span className="text-orange-500">✓</span> 30-day launch optimization</li>
                 <li className="flex gap-3"><span className="text-orange-500">✓</span> Photo swaps & content changes</li>
@@ -246,37 +246,12 @@ export default function FunnelsPage() {
         </div>
       </section>
 
-      {/* --- HOW IT WORKS (Restored) --- */}
-      <section className="py-24 px-6 border-b border-white/5">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-16 text-center">How It Works</h2>
-          <div className="space-y-12">
-            {[
-              { step: "01", title: "You fill out a brief", body: "Tell us about your services, service area, and what matters most (calls vs quotes). Takes 5 minutes." },
-              { step: "02", title: "We build your asset", body: "We pull your Google profile data, design the layout for conversions, set up call tracking, and deploy. Done in 5–7 days." },
-              { step: "03", title: "You start getting calls", body: "Your funnel goes live on Google. Visitors see a fast page with your ratings and a big call button." },
-              { step: "04", title: "We measure & optimize", body: "Month 1 is optimization: we test copy, forms, and mobile flow based on real data." },
-            ].map((item, i) => (
-              <div key={item.step} className="flex gap-6 md:gap-10 items-start group">
-                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl font-black text-slate-500 group-hover:text-emerald-400 group-hover:border-emerald-500/50 transition-colors">
-                  {item.step}
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">{item.title}</h3>
-                  <p className="text-slate-400 leading-relaxed">{item.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* --- TECH STACK (Restored) --- */}
-      <section className="py-24 px-6 bg-[#080808] border-b border-white/5">
+      {/* --- TECH STACK --- */}
+      <section className="py-24 px-6 bg-[#050505] border-b border-white/5">
         <div className="max-w-5xl mx-auto">
           <h3 className="text-2xl font-bold text-white mb-8 text-center">Built on the Billion-Dollar Stack</h3>
           <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
-            No Wix. No WordPress. No Monthly Fees. We use the same tech stack as modern startups.
+            No Wix. No WordPress. No Monthly Fees. We use the same tech stack as modern startups (Next.js & Vercel) to guarantee speed.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
@@ -303,8 +278,8 @@ export default function FunnelsPage() {
             {/* Build & Own */}
             <div className={`${glassClass} p-10 rounded-3xl flex flex-col hover:border-emerald-500/30 transition-all`}>
               <h3 className="text-2xl font-black mb-2">Build & Own</h3>
-              <div className="text-4xl font-black text-emerald-400 mb-4">$999</div>
-              <p className="text-slate-400 mb-8 font-bold uppercase tracking-widest text-[10px]">One-time build fee</p>
+              <div className="text-4xl font-black text-emerald-400 mb-4">$2,997</div>
+              <p className="text-slate-400 mb-8 font-bold uppercase tracking-widest text-[10px]">One-time asset investment</p>
               <ul className="space-y-4 mb-8 text-slate-300 flex-grow text-sm">
                 <li className="flex gap-3"><span className="text-emerald-400">✓</span> Custom single-page funnel</li>
                 <li className="flex gap-3"><span className="text-emerald-400">✓</span> Mobile-first design</li>
@@ -347,7 +322,7 @@ export default function FunnelsPage() {
         </div>
       </section>
 
-      {/* --- FAQ (Restored) --- */}
+      {/* --- FAQ --- */}
       <section className="py-24 px-6 border-t border-white/5">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-white mb-12 text-center">FAQ</h2>
